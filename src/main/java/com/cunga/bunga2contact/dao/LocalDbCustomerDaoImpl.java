@@ -15,8 +15,14 @@ public class LocalDbCustomerDaoImpl implements CustomerDao{
     @Override
     public int insertCustomer(UUID id, Customer customer){
 
-        LOCALDB.add(new Customer(id,customer.getName()));
+        LOCALDB.add(new Customer(id,customer.getName(),customer.getSurname()));
         return 1;
     }
+
+    @Override
+    public List<Customer> selectAllPeople() {
+        return LOCALDB;
+    }
+
 
 }

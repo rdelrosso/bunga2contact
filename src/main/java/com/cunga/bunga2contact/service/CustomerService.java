@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerService {
 
@@ -19,5 +21,9 @@ public class CustomerService {
 
     public int addCustomer(Customer customer){
         return customerDao.insertCustomer(customer);
+    }
+
+    public List<Customer> getAllCustomers(){
+       return customerDao.selectAllPeople();
     }
 }
