@@ -2,6 +2,7 @@ package com.cunga.bunga2contact.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 public class Customer {
@@ -21,11 +22,11 @@ public class Customer {
     public UUID getId() {
         return id;
     }
-
+    @NotBlank
     public String getName() {
         return name;
     }
-
+    @NotBlank
     public String getSurname() {
         return surname;
     }

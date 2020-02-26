@@ -3,6 +3,7 @@ package com.cunga.bunga2contact.dao;
 import com.cunga.bunga2contact.model.Customer;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface CustomerDao {
@@ -14,6 +15,12 @@ public interface CustomerDao {
         return insertCustomer(id, customer);
     }
 
-    public List<Customer> selectAllPeople();
+    List<Customer> selectAllPeople();
+
+    Optional<Customer> selectCustomerById(UUID id);
+
+    int deleteCustomerByID(UUID id);
+
+    int updateCustomerByID(UUID id, Customer customer);
 
 }
