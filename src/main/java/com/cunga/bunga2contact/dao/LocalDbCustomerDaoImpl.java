@@ -16,7 +16,17 @@ public class LocalDbCustomerDaoImpl implements CustomerDao{
     @Override
     public int insertCustomer(UUID id, Customer customer){
 
-        LOCALDB.add(new Customer(id,customer.getName(),customer.getSurname()));
+        LOCALDB.add(new Customer(id,
+                customer.getName(),
+                customer.getSurname(),
+                customer.getDateOfBirth(),
+                customer.getAddressLine1(),
+                customer.getAddressLine2(),
+                customer.getCity(),
+                customer.getState(),
+                customer.getPostCode(),
+                customer.getEmailAddress(),
+                customer.getPhoneNumber()));
         return 1;
     }
 
@@ -48,7 +58,19 @@ public class LocalDbCustomerDaoImpl implements CustomerDao{
                 .map(customer1 -> {
                     int indexOfCustomerToDelete = LOCALDB.indexOf(customer1);
                     if (indexOfCustomerToDelete >= 0) {
-                        LOCALDB.set(indexOfCustomerToDelete, new Customer(id, customer.getName(),customer.getSurname()));
+                        LOCALDB.set(indexOfCustomerToDelete, new Customer(
+                                id,
+                                customer.getName(),
+                                customer.getSurname(),
+                                customer.getDateOfBirth(),
+                                customer.getAddressLine1(),
+                                customer.getAddressLine2(),
+                                customer.getCity(),
+                                customer.getState(),
+                                customer.getPostCode(),
+                                customer.getEmailAddress(),
+                                customer.getPhoneNumber())
+                        );
                         return 1;
                     }
                     return 0;
